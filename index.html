@@ -6,21 +6,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f0f2f5;
+      background-color: #f8f9fa;
       font-family: 'Segoe UI', sans-serif;
     }
-    .hidden-section { display: none; }
+    .hidden-section {
+      display: none;
+    }
     .logo {
-      display: block;
-      margin: 0 auto 20px auto;
       max-width: 250px;
-    }
-    .card-title {
-      font-weight: bold;
-    }
-    .navbar-brand img {
-      height: 50px;
-      margin-right: 10px;
+      display: block;
+      margin: 0 auto 20px;
     }
     footer {
       background-color: #0d6efd;
@@ -31,10 +26,10 @@
 </head>
 <body>
 
-<!-- LOGIN PAGE -->
-<div id="login-section" class="container login-section">
-  <div class="login-container mt-5 p-4 bg-white rounded shadow-sm" style="max-width: 400px; margin: auto;">
-    <img src="https://saveetha.ac.in/wp-content/uploads/2024/03/sec-logo-01as.png" alt="Saveetha Logo" class="logo">
+<!-- LOGIN SECTION -->
+<div id="login-section" class="container mt-5">
+  <div class="card p-4 shadow" style="max-width: 400px; margin: auto;">
+    <img src="https://saveetha.ac.in/wp-content/uploads/2024/03/SEC-LOGO-2-2048x547.png" alt="Saveetha Logo" class="logo">
     <h4 class="text-center text-primary mb-4">Login to Saveetha Portal</h4>
     <form onsubmit="login(event)">
       <div class="mb-3">
@@ -50,9 +45,9 @@
   </div>
 </div>
 
-<!-- STUDENT REGISTER FORM -->
-<div id="student-register" class="container hidden-section">
-  <div class="mt-5 p-4 bg-white rounded shadow-sm" style="max-width: 500px; margin: auto;">
+<!-- STUDENT REGISTRATION FORM -->
+<div id="student-register" class="container hidden-section mt-5">
+  <div class="card p-4 shadow" style="max-width: 500px; margin: auto;">
     <h4 class="text-center mb-4 text-success">Student Registration</h4>
     <form onsubmit="submitStudentForm(event)">
       <div class="mb-3">
@@ -62,16 +57,17 @@
       <div class="mb-3">
         <label class="form-label">Department</label>
         <select id="student-dept" class="form-select" required>
-          <option value="">Choose...</option>
+          <option value="">Select Department</option>
           <option>CSE</option>
           <option>ECE</option>
           <option>EEE</option>
+          <option>Mechanical</option>
+          <option>Civil</option>
           <option>IT</option>
-          <option>CSE(IOT)</option>
-          <option>AGRI</option>
-          <option>AIDS</option>
-          <option>MECH</option>
-          <option>CIVIL</option>
+          <option>AI & DS</option>
+          <option>Biomedical</option>
+          <option>Mechatronics</option>
+          <option>Agriculture</option>
         </select>
       </div>
       <div class="mb-3">
@@ -83,13 +79,13 @@
   </div>
 </div>
 
-<!-- STUDENT HOME -->
+<!-- STUDENT HOME PAGE -->
 <div id="student-home" class="hidden-section">
   <nav class="navbar navbar-light bg-light mb-0">
     <div class="container d-flex justify-content-between">
       <div class="d-flex align-items-center">
-        <img src="https://saveetha.ac.in/wp-content/uploads/2024/03/sec-logo-01as.png" alt="Saveetha Logo" height="50" class="me-2">
-        <span class="navbar-brand h5">Saveetha College - Student Home</span>
+        <img src="https://saveetha.ac.in/wp-content/uploads/2024/03/sec-logo-01as.png" alt="Logo" height="50">
+        <span class="navbar-brand h5 ms-2">Saveetha College - Student Home</span>
       </div>
       <button onclick="logout()" class="btn btn-outline-primary">Logout</button>
     </div>
@@ -106,7 +102,7 @@
         <div class="card shadow h-100">
           <div class="card-body">
             <h5 class="card-title">📢 Notices</h5>
-            <p class="card-text">Latest circulars and updates from departments.</p>
+            <p class="card-text">Latest updates and announcements.</p>
           </div>
         </div>
       </div>
@@ -114,7 +110,7 @@
         <div class="card shadow h-100">
           <div class="card-body">
             <h5 class="card-title">👨‍🏫 Faculty</h5>
-            <p class="card-text">Experienced mentors and professors for your guidance.</p>
+            <p class="card-text">Our experienced and dedicated faculty members.</p>
           </div>
         </div>
       </div>
@@ -122,7 +118,7 @@
         <div class="card shadow h-100">
           <div class="card-body">
             <h5 class="card-title">👤 Profile</h5>
-            <p class="card-text">Manage your academic details and information.</p>
+            <p class="card-text">View and manage your student profile.</p>
           </div>
         </div>
       </div>
@@ -140,78 +136,76 @@
   <nav class="navbar navbar-light bg-light mb-3">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center">
-        <img src="https://saveetha.ac.in/wp-content/uploads/2024/03/sec-logo-01as.png" alt="Saveetha Logo" height="50" class="me-2">
-        <span class="navbar-brand h5">Admin Dashboard - Saveetha</span>
+        <img src="https://saveetha.ac.in/wp-content/uploads/2024/03/sec-logo-01as.png" alt="Saveetha Logo" height="50">
+        <span class="navbar-brand h5 ms-2">Admin Dashboard - Saveetha</span>
       </div>
       <button onclick="logout()" class="btn btn-outline-dark">Logout</button>
     </div>
   </nav>
 
   <div class="container">
-    <h3 class="text-center mb-4">Faculty & Students Overview</h3>
+    <h3 class="text-center mb-4">Faculty & Registered Students</h3>
     <div class="row">
       <div class="col-md-6">
         <h5>👨‍🏫 Faculty List</h5>
         <ul class="list-group">
           <li class="list-group-item">Dr. Arjun - CSE</li>
           <li class="list-group-item">Prof. Lakshmi - ECE</li>
-          <li class="list-group-item">Prof. Ram Jaya - ECE</li>
-          <li class="list-group-item">Prof. JayaLakshmi - ECE</li>
-          <li class="list-group-item">Dr. Lakshmi - CSE</li>
-          <li class="list-group-item">Dr. Suresh - IT</li>
-          <li class="list-group-item">Prof. Meera - CSE(IOT)</li>
-
+          <li class="list-group-item">Dr. Ramesh - EEE</li>
+          <li class="list-group-item">Prof. Divya - Mechanical</li>
+          <li class="list-group-item">Dr. Senthil - Civil</li>
+          <li class="list-group-item">Prof. Keerthana - IT</li>
+          <li class="list-group-item">Dr. Naveen - AI & DS</li>
+          <li class="list-group-item">Prof. Meena - Biomedical</li>
+          <li class="list-group-item">Dr. Vignesh - Mechatronics</li>
+          <li class="list-group-item">Prof. Priya - Agriculture</li>
         </ul>
       </div>
       <div class="col-md-6">
         <h5>🎓 Registered Students</h5>
         <ul id="student-list" class="list-group">
-          <!-- Student data will appear here -->
+          <!-- Populated from registration -->
         </ul>
       </div>
     </div>
   </div>
 </div>
 
-<!-- JavaScript -->
+<!-- JavaScript Logic -->
 <script>
   function login(e) {
     e.preventDefault();
-    const u = document.getElementById('username').value;
-    const p = document.getElementById('password').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    if (u === 'admin' && p === 'adminadmin123') {
+    if (username === 'admin' && password === 'adminadmin123') {
       document.getElementById('login-section').style.display = 'none';
       document.getElementById('admin-home').style.display = 'block';
-    } else if (u === 'user' && p === 'user123') {
+    } else if (username === 'user' && password === 'user123') {
       document.getElementById('login-section').style.display = 'none';
       document.getElementById('student-register').style.display = 'block';
     } else {
-      alert('Invalid credentials');
+      alert('Invalid credentials!');
     }
   }
 
   function submitStudentForm(e) {
     e.preventDefault();
-    document.getElementById('student-register').style.display = 'none';
-    document.getElementById('student-home').style.display = 'block';
-
-    // Get student details
     const name = document.getElementById('student-name').value;
     const dept = document.getElementById('student-dept').value;
     const year = document.getElementById('student-year').value;
 
-    // Create a new list item
     const li = document.createElement('li');
     li.className = 'list-group-item';
     li.innerText = `${name} (${dept}, Year ${year})`;
-
-    // Add to admin list
     document.getElementById('student-list').appendChild(li);
+
+    document.getElementById('student-register').style.display = 'none';
+    document.getElementById('student-home').style.display = 'block';
   }
 
   function logout() {
-    document.querySelectorAll('.hidden-section').forEach(div => div.style.display = 'none');
+    document.querySelectorAll('.hidden-section').forEach(section => section.style.display = 'none');
     document.getElementById('login-section').style.display = 'block';
   }
 </script>
